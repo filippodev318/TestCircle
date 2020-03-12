@@ -1,0 +1,27 @@
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
+
+
+  build2:
+    docker:
+      - image: circleci/ruby:2.4-node
+    steps:
+      - checkout
+
+workflows:
+  version: 2
+
+  my_workflow:
+    jobs:
+      - build
+      - build2
+
